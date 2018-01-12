@@ -27,6 +27,7 @@ import time
 import numpy as np
 import tensorflow as tf
 
+DEBUG=True
 
 def check_tensorflow_version():
   min_tf_version = "1.4.0-dev20171024"
@@ -51,6 +52,8 @@ def print_time(s, start_time):
 
 
 def print_out(s, f=None, new_line=True):
+  if not DEBUG:
+    return
   """Similar to print but with support to flush and output to a file."""
   if isinstance(s, bytes):
     s = s.decode("utf-8")
